@@ -13,6 +13,9 @@ chrome.runtime.onMessage.addListener(
     }
     else if(request.action === "check_cookie") {
       checkCookie();
+    } else if (request.action === "set_cookie") {
+      chrome.cookies.set({name:"YT-RD-AWAY", url:"https://www.youtube.com/", expirationDate: deadline})
+        sendResponse({status: "COOKIE SENT!"});
     }
   }
 );
@@ -33,15 +36,14 @@ async function removeTab() {
   });
 }
 
-// async function checkCookie() {
-//   let cookies = await chrome.cookies.get({name:"YT-RD-AWAY", url:"https://www.youtube.com/"});
-//   console.log(cookies);
+async function checkCookie() {
+  let cookies = await chrome.cookies.get({name:"YT-RD-AWAY", url:"https://www.youtube.com/"});
+  console.log(cookies);
 
-//   if ( cookies != undefined) {
+  if ( cookies != undefined) {
 
-//     if(removeTab() != -1) {
-//       console.log("Closed tab succesfully");
-//     }
-//   }
-//   // If no cookie is present, disregard
-// }
+    if(removeTab() != -1) {
+    }
+  }
+  // If no cookie is present, disregard
+}

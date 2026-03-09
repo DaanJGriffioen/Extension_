@@ -1,9 +1,12 @@
 {
   "manifest_version": 3,
   "name": "Productivity Enhancer",
-  "version": "1.0",
+  "version": "1.00",
   "description": "Closes YouTube shorts, and reddit",
-  "permissions": ["tabs", "activeTab", "cookies"],
+  "permissions": ["tabs", 
+                  "activeTab", 
+                  "cookies"
+                ],
   "background" : {
     "service_worker": "scripts/bg.js" 
   },
